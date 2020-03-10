@@ -7,11 +7,14 @@
 
 <script lang="ts">
 import TheNavigation from "@/components/TheNavigation.vue";
-export default {
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({
   components: {
     TheNavigation
   }
-};
+})
+export default class App extends Vue {}
 </script>
 
 <style>
