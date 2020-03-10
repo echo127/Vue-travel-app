@@ -10,7 +10,7 @@
         v-for="destination in destinations"
         :key="destination.name"
       >
-        <router-link :to="{ name: 'DestinationDetails', params: { slug: destination.slug } }">
+        <router-link :to="{ name: 'DestinationDetails', params: { id: destination.id } }">
           {{ destination.name }}
         </router-link>
       </li>
@@ -24,6 +24,7 @@ import store from "../store";
 export default Vue.extend({
   data() {
     return {
+      destinationId: this.$route.params.id,
       destinations: store.destinations
     };
   }
@@ -44,7 +45,7 @@ export default Vue.extend({
   color: #2c3e50;
   font-weight: bold;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 #nav a.router-link-exact-active {
