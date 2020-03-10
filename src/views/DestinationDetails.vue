@@ -16,13 +16,13 @@ import store from "../store";
 export default Vue.extend({
   data() {
     return {
-      destinationId: this.$route.params.id
+      slug: this.$route.params.slug
     };
   },
   computed: {
     destination() {
       return store.destinations.find(
-        destination => destination.id === +this.$data.destinationId
+        destination => destination.slug === this.$data.slug
       );
     }
   }

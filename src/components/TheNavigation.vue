@@ -10,7 +10,7 @@
         v-for="destination in destinations"
         :key="destination.name"
       >
-        <router-link :to="{ name: 'DestinationDetails', params: { id: destination.id } }">
+        <router-link :to="{ name: 'DestinationDetails', params: { slug: destination.slug } }">
           {{ destination.name }}
         </router-link>
       </li>
@@ -24,7 +24,7 @@ import store from "../store";
 export default Vue.extend({
   data() {
     return {
-      destinationId: this.$route.params.id,
+      slug: this.$route.params.slug,
       destinations: store.destinations
     };
   }
