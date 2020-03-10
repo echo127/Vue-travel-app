@@ -23,19 +23,24 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // @ is an alias to /src
 import store from "../store";
+import { Component, Vue } from "vue-property-decorator";
 
-export default {
-  name: "Home",
-  components: {},
-  data() {
-    return {
-      destinations: store.destinations
-    };
-  }
-};
+@Component
+export default class Home extends Vue {
+  private destinations = store.destinations;
+}
+// export default {
+//   name: "Home",
+//   components: {},
+//   data() {
+//     return {
+//       destinations: store.destinations
+//     };
+//   }
+// };
 </script>
 <style scoped>
 .home {
