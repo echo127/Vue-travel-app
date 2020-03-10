@@ -21,14 +21,19 @@
 <script lang="ts">
 import Vue from "vue";
 import store from "../store";
-export default Vue.extend({
-  data() {
-    return {
-      slug: this.$route.params.slug,
-      destinations: store.destinations
-    };
-  }
-});
+
+export default class TheNavigation extends Vue {
+  private slug = this.$route.params.slug;
+  private destinations = store.destinations;
+}
+// export default Vue.extend({
+//   data() {
+//     return {
+//       slug: this.$route.params.slug,
+//       destinations: store.destinations
+//     };
+//   }
+// });
 </script>
 
 <style scoped>
