@@ -2,10 +2,11 @@
   <nav id="nav">
     <p class="logo">Your Travel Destination Choices</p>
     <ul class="nav-links">
-      <li class="links">
+      <li>
         <router-link to="/">
           Home
         </router-link>
+      </li>
       <li
         v-for="destination in destinations"
         :key="destination.name"
@@ -61,8 +62,7 @@ export default class TheNavigation extends Vue {
   display: flex;
 }
 
-.links {
-  padding-right: 20px;
+.nav-links {
   list-style: none;
 }
 
