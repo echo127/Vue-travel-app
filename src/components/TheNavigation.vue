@@ -1,16 +1,17 @@
 <template>
   <div id="nav">
-    <ul>
+    <h1>Your Travel Destinations</h1>
+    <ul class="links">
       <li>
         <router-link to='/'>Home</router-link>
       </li>
-    </ul>
-    <ul
-      class="destinations"
-      v-for="destination in destinations"
-      :key="destination.name"
-    >
-      <li>
+
+      <li
+        v-for="destination
+        in
+        destinations"
+        :key="destination.name"
+      >
         <router-link :to="{name: 'DestinationDetails', params:{slug: destination.slug}}">{{destination.name}}</router-link>
       </li>
     </ul>
@@ -29,24 +30,31 @@ export default class TheNavigation extends Vue {
 }
 </script>
 <style scoped>
-#nav {
-  padding: 30px;
+h1 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: purple;
 }
-
-ul {
-  text-decoration: none;
+#nav {
+  display: flex;
 }
 
 #nav a {
   font-weight: bold;
   color: #2c3e50;
   padding: 0 10px;
+  text-decoration: none;
 }
-
+a:hover {
+  color: purple;
+  text-decoration: underline;
+}
 a.router-link-exact-active {
   color: #42b983;
 }
-.destinations {
+.links {
+  padding: 15px 20px;
   display: flex;
+  list-style: none;
 }
 </style>
