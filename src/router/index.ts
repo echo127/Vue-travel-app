@@ -3,7 +3,6 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
-
 const routes = [
   {
     path: '/',
@@ -11,12 +10,26 @@ const routes = [
     component: Home
   },
   {
-    path: '/details/:slug',
+    path: '/DestinationDetails/:slug',
     name: 'DestinationDetails',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
     component: () =>
       import(
-        /* webpackChunkName: "details" */ '../views/DestinationDetails.vue'
-      )
+        /* webpackChunkName: "DestinationDetails" */ '../views/DestinationDetails.vue'
+      ),
+
+    children: [
+      {
+        path: `/DestinationDetails/:slug/:experienceSlug`,
+        name: 'ExperienceDetails',
+        component: () =>
+          import(
+            /* webpackChunkName: "ExperienceDetails" */ '../views/ExperienceDetails.vue'
+          )
+      }
+    ]
   }
 ];
 

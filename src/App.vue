@@ -1,13 +1,12 @@
 <template>
   <div id="app">
     <TheNavigation />
-    <router-view :key="$route.path" />
+    <router-view :key="this.$route.params.slug" />
   </div>
 </template>
-
 <script lang="ts">
-import TheNavigation from "@/components/TheNavigation.vue";
 import { Component, Vue } from "vue-property-decorator";
+import TheNavigation from "@/components/TheNavigation.vue";
 
 @Component({
   components: {
@@ -16,7 +15,6 @@ import { Component, Vue } from "vue-property-decorator";
 })
 export default class App extends Vue {}
 </script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
