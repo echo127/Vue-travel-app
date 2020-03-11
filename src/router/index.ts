@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import uuid from 'uuid';
 
 Vue.use(VueRouter);
-
+const newId = uuid.v4();
 const routes = [
   {
     path: '/',
@@ -17,7 +18,20 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/DestinationDetails.vue')
+      import(
+        /* webpackChunkName: "DestinationDetails" */ '../views/DestinationDetails.vue'
+      ),
+
+    children: [
+      {
+        path: `/DestinationDetails/:slug/:experienceSlug`,
+        name: 'ExperienceDetails',
+        component: () =>
+          import(
+            /* webpackChunkName: "ExperienceDetails" */ '../views/ExperienceDetails.vue'
+          )
+      }
+    ]
   }
 ];
 
