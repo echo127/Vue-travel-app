@@ -7,35 +7,27 @@
         v-for="destination in destinations"
         :key="destination.name"
       >
-        <router-link :to="destination.slug">
-          {{ destination.name }}
-        </router-link>
+        <router-link :to="{name:'DestinationDetails', params:{slug: destination.slug}}">{{destination.name}}</router-link>
         <figure>
-          <router-link :to="destination.name">
-            <img
-              :src="require(`@/assets/${destination.image}`)"
-              :alt="destination.image"
-            />
-          </router-link>
+          <img
+            :src="require(`@/assets/${destination.image}`)"
+            :alt="destination.image"
+          >
         </figure>
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // @ is an alias to /src
 import store from "../store";
+import { Vue, Component } from "vue-property-decorator";
 
-export default {
-  name: "Home",
-  components: {},
-  data() {
-    return {
-      destinations: store.destinations
-    };
-  }
-};
+@Component
+export default class Home extends Vue {
+  private destinations = store.destinations;
+}
 </script>
 <style scoped>
 .home {
