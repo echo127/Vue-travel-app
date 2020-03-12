@@ -30,6 +30,12 @@ const routes = [
           )
       }
     ]
+  },
+  {
+    path: '*',
+    name: 'noFound',
+    component: () =>
+      import(/* webpackChunkName: "NoFound" */ '../views/NoFound.vue')
   }
 ];
 

@@ -7,12 +7,12 @@
         <img
           :src="require(`@/assets/${destination.image}`)"
           :alt="destination.image"
-        >
+        />
         <p>{{ destination.description }}</p>
       </div>
     </section>
     <section class="expriences">
-      <h2>Top experiences in {{destination.name}}</h2>
+      <h2>Top experiences in {{ destination.name }}</h2>
       <div class="cards">
         <div
           v-for="(experience, index) in destination.experiences"
@@ -29,9 +29,9 @@
             <img
               :src="require(`@/assets/${experience.image}`)"
               :alt="experience.image"
-            >
+            />
             <span class="card_text">
-              {{experience.name}}
+              {{ experience.name }}
             </span>
           </router-link>
         </div>
