@@ -1,5 +1,6 @@
 <template>
   <div>
+    <GoBackButton />
     <section class="destinations">
       <h1>{{ destination.name }}</h1>
       <div class="destination-details">
@@ -44,7 +45,12 @@
 <script lang="ts">
 import Vue from "vue";
 import store from "../store";
+import GoBackButton from "../components/GoBackButton.vue";
+
 export default Vue.extend({
+  components: {
+    GoBackButton
+  },
   data() {
     return {
       slug: this.$route.params.slug
